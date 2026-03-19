@@ -214,9 +214,50 @@ footer {
 
 </section>
 
+<!-- 🤖 Chatbot Section -->
+<section id="chatbot">
+    <h2>AI Chatbot 🤖</h2>
+    
+    <div id="chatbox" style="background:#1e293b;padding:20px;border-radius:10px;height:200px;overflow-y:auto;margin-bottom:10px;">
+        <p><b>Bot:</b> Hello! Ask me anything.</p>
+    </div>
+
+    <input type="text" id="userInput" placeholder="Type your message..." style="padding:10px;width:70%;">
+    <button onclick="sendMessage()" class="btn">Send</button>
+</section>
+
 <footer>
-    <p>© 2026 Abu | AI/ML Portfolio</p>
+   <p>© 2026 Abu | AI/ML Portfolio</p>
 </footer>
+
+<!-- 🧠 Chatbot Script -->
+<script>
+function sendMessage() {
+    let input = document.getElementById("userInput").value;
+    let chatbox = document.getElementById("chatbox");
+
+    if(input.trim() === "") return;
+
+    chatbox.innerHTML += "<p><b>You:</b> " + input + "</p>";
+
+    let response = getBotResponse(input);
+    chatbox.innerHTML += "<p><b>Bot:</b> " + response + "</p>";
+
+    document.getElementById("userInput").value = "";
+    chatbox.scrollTop = chatbox.scrollHeight;
+}
+
+function getBotResponse(input) {
+    input = input.toLowerCase();
+
+    if(input.includes("hello")) return "Hi! Nice to meet you.";
+    if(input.includes("ai")) return "I am a chatbot created by Abu.";
+    if(input.includes("name")) return "I am your portfolio assistant.";
+    if(input.includes("project")) return "Check my projects above!";
+    
+    return "Interesting! Tell me more.";
+}
+</script>
 
 </body>
 </html>
