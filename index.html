@@ -253,11 +253,31 @@ const API_KEY = "AIzaSyBj4a8fY3rSkFTkE4UN3scA_4295mSi_ms";
 async function getBotResponse(input) {
   input = input.toLowerCase();
 
-  if (input.includes("hi")) return "Hello 👋";
-  if (input.includes("name")) return "I am Abu's AI assistant 🤖";
-  if (input.includes("project")) return "Check my projects above 🚀";
+  if (input.includes("hello") || input.includes("hi")) {
+    return "Hello! 👋 Welcome to my AI portfolio.";
+  }
 
-  return "Interesting! Tell me more.";
+  if (input.includes("name")) {
+    return "I'm Abu's AI assistant 🤖, here to guide you.";
+  }
+
+  if (input.includes("project")) {
+    return "You can explore my AI chatbot, stock predictor, and portfolio projects above 🚀";
+  }
+
+  if (input.includes("skill")) {
+    return "I work with HTML, CSS, Python, and Machine Learning.";
+  }
+
+  if (input.includes("contact")) {
+    return "You can contact me using the form above 📩";
+  }
+
+  if (input.includes("ai")) {
+    return "I'm learning AI/ML and building real-world projects step by step 🤖";
+  }
+
+  return "That's interesting! Tell me more 😊";
 }
 </script>
 
