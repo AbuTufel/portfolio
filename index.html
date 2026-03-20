@@ -271,17 +271,22 @@ async function getBotResponse(input) {
 
     const data = await response.json();
 
-    console.log(data); // 🔥 ADD THIS
+    console.log("FULL RESPONSE:", data); // 👈 VERY IMPORTANT
+
+    // 🔥 Handle API error
+    if (data.error) {
+      return "❌ API Error: " + data.error.message;
+    }
 
     if (data.candidates && data.candidates.length > 0) {
       return data.candidates[0].content.parts[0].text;
     } else {
-      return "⚠️ Error: No response from AI";
+      return "⚠️ No response from AI";
     }
 
   } catch (error) {
     console.error(error);
-    return "⚠️ Error connecting to AI";
+    return "⚠️ Connection error";
   }
 }
 </script>
